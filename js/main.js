@@ -231,16 +231,48 @@ const handleFormSubmission = () => {
       });
       
       if (isValid) {
-        contactForm.innerHTML = `
-          <div class="success-message">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--color-success-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-              <polyline points="22 4 12 14.01 9 11.01"></polyline>
-            </svg>
-            <h3>Message Sent Successfully!</h3>
-            <p>Thank you for reaching out! I'll get back to you as soon as possible.</p>
-          </div>
-        `;
+        // Sunucusuz fonksiyona gönder
+        fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formValues.name,
+            email: formValues.email,
+            subject: formValues.subject,
+            message: formValues.message,
+          }),
+        })
+          .then((response) => {
+            if (response.ok) {
+              contactForm.innerHTML = `
+                <div class="success-message">
+                  <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--color-success-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                  </svg>
+                  <h3>Mesajınız başarıyla gönderildi!</h3>
+                  <p>En kısa sürede sizinle iletişime geçeceğim.</p>
+                </div>
+              `;
+            } else {
+              contactForm.innerHTML = `
+                <div class="error-message">
+                  <h3>Bir hata oluştu!</h3>
+                  <p>Mesajınız gönderilemedi. Lütfen daha sonra tekrar deneyin.</p>
+                </div>
+              `;
+            }
+          })
+          .catch(() => {
+            contactForm.innerHTML = `
+              <div class="error-message">
+                <h3>Bir hata oluştu!</h3>
+                <p>Mesajınız gönderilemedi. Lütfen daha sonra tekrar deneyin.</p>
+              </div>
+            `;
+          });
       }
     });
   }
