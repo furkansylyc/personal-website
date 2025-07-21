@@ -6,12 +6,27 @@ import '../styles/components.css';
 const body = document.body;
 const header = document.getElementById('header');
 const themeToggle = document.getElementById('theme-toggle');
+const sunIcon = document.querySelector('.sun-icon');
+const moonIcon = document.querySelector('.moon-icon');
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+let currentTheme = localStorage.getItem('theme') || (prefersDarkScheme.matches ? 'dark' : 'light');
+function setTheme(theme) {
+  document.body.setAttribute('data-theme', theme);
+  sunIcon.style.display = theme === 'light' ? 'block' : 'none';
+  moonIcon.style.display = theme === 'dark' ? 'block' : 'none';
+  localStorage.setItem('theme', theme);
+}
+setTheme(currentTheme);
+themeToggle.addEventListener('click', function () {
+  currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+  setTheme(currentTheme);
+});
 const menuToggle = document.getElementById('menu-toggle');
 const mobileNav = document.querySelector('.mobile-nav');
 const navLinks = document.querySelectorAll('.nav-link');
 const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 const sections = document.querySelectorAll('section');
-const revealElements = document.querySelectorAll('.reveal-content, .reveal-image, .fade-in, .slide-in-left, .slide-in-right, .scale-up');
+const revealElements = document.querySelectorAll('.reveal-content, .reveal-image');
 const filterButtons = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 const cursor = document.getElementById('cursor');
