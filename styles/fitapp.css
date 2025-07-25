@@ -103,23 +103,20 @@ header a:hover {
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 22px;
-  justify-content: center;
+  gap: 16px;
 }
 .gallery img {
-  max-width: 200px;
-  border-radius: 12px;
-  box-shadow: 0 2px 16px rgba(30,60,120,0.18);
-  background: linear-gradient(135deg, #232b45 60%, #4ea8ff22 100%);
-  padding: 8px;
-  transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
-  filter: brightness(0.98) contrast(1.08);
+  max-width: 180px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(30,60,120,0.18);
+  background: #232b45;
+  padding: 6px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 .gallery img:hover {
-  transform: scale(1.08) rotate(1deg);
-  box-shadow: 0 8px 32px #4ea8ff77;
-  filter: brightness(1.08) contrast(1.15) drop-shadow(0 0 8px #4ea8ff88);
-  z-index: 2;
+  transform: scale(1.08);
+  box-shadow: 0 8px 32px #4ea8ff55;
 }
 .button.secondary {
   background: linear-gradient(90deg, #1976d2 0%, #4ea8ff 100%);
