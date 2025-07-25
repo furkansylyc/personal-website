@@ -1,19 +1,17 @@
-// Basit vanilla JS galeri slider
+
 (function() {
   function createSlider(gallery) {
     const images = Array.from(gallery.querySelectorAll('img'));
-    if (images.length <= 1) return; // Tek görsel varsa slider gerekmez
+    if (images.length <= 1) return; 
 
-    // Slider container
     const slider = document.createElement('div');
     slider.className = 'gallery-slider';
     slider.tabIndex = 0;
 
-    // Slide wrapper
+    
     const slidesWrapper = document.createElement('div');
     slidesWrapper.className = 'gallery-slides';
 
-    // Ok butonları
     const prevBtn = document.createElement('button');
     prevBtn.className = 'gallery-arrow gallery-arrow-left';
     prevBtn.innerHTML = '&#8592;';
@@ -23,7 +21,7 @@
     nextBtn.innerHTML = '&#8594;';
     nextBtn.setAttribute('aria-label', 'Sonraki fotoğraf');
 
-    // Slide'ları ekle
+   
     images.forEach((img, i) => {
       const slide = document.createElement('div');
       slide.className = 'gallery-slide';
@@ -53,12 +51,12 @@
     }
     prevBtn.addEventListener('click', prev);
     nextBtn.addEventListener('click', next);
-    // Klavye desteği
+   
     slider.addEventListener('keydown', e => {
       if (e.key === 'ArrowLeft') prev();
       if (e.key === 'ArrowRight') next();
     });
-    // Swipe desteği
+   
     let startX = null;
     slidesWrapper.addEventListener('touchstart', e => {
       startX = e.touches[0].clientX;
