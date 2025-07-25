@@ -29,11 +29,12 @@ header a:hover {
 .project-detail {
   max-width: 900px;
   margin: 40px auto;
-  background: rgba(24, 33, 58, 0.98);
+  background: rgba(24, 33, 58, 0.72);
+  backdrop-filter: blur(12px) saturate(1.2);
   border-radius: 24px;
-  box-shadow: 0 8px 40px 0 rgba(30,60,120,0.22);
+  box-shadow: 0 8px 40px 0 #4ea8ff33, 0 0 32px #1976d244;
   padding: 48px 40px 40px 40px;
-  border: 1.5px solid #223355;
+  border: 2px solid #4ea8ff55;
   animation: fadeIn 1.2s cubic-bezier(.4,0,.2,1);
 }
 @keyframes fadeIn {
@@ -48,6 +49,13 @@ header a:hover {
   text-align: center;
   text-shadow: 0 4px 24px #1976d2aa;
   font-weight: 800;
+  background: linear-gradient(90deg, #4ea8ff 20%, #90caf9 60%, #ff00c1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  position: relative;
+  animation: slideInDown 1.1s ease both, neonGlow 2.5s infinite alternate;
 }
 .project-detail > img {
   display: block;
@@ -59,10 +67,13 @@ header a:hover {
 }
 .project-detail section {
   margin-bottom: 40px;
-  background: rgba(30, 40, 70, 0.7);
+  background: rgba(30, 40, 70, 0.55);
+  backdrop-filter: blur(6px);
   border-radius: 14px;
   padding: 18px 18px 10px 18px;
-  box-shadow: 0 2px 12px #1976d211;
+  box-shadow: 0 2px 16px #4ea8ff22;
+  border: 1.5px solid #4ea8ff33;
+  transition: box-shadow 0.4s, border 0.3s, background 0.3s;
 }
 .project-detail h2 {
   font-size: 1.5rem;
@@ -72,7 +83,7 @@ header a:hover {
   padding-left: 14px;
   letter-spacing: 1px;
   font-weight: 700;
-  text-shadow: 0 2px 8px #4ea8ff33;
+  text-shadow: 0 2px 8px #4ea8ff33, 0 0 8px #ff00c144;
 }
 .project-detail ul {
   padding-left: 28px;
@@ -119,7 +130,7 @@ header a:hover {
   box-shadow: 0 8px 32px #4ea8ff55;
 }
 .button.secondary {
-  background: linear-gradient(90deg, #1976d2 0%, #4ea8ff 100%);
+  background: linear-gradient(90deg, #1976d2 0%, #4ea8ff 60%, #ff00c1 100%);
   color: #fff;
   padding: 12px 28px;
   border-radius: 8px;
@@ -129,15 +140,38 @@ header a:hover {
   transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
   display: inline-block;
   box-shadow: 0 2px 12px rgba(30,60,120,0.13);
-  border: none;
+  border: 2px solid #4ea8ff88;
   letter-spacing: 0.5px;
   margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.button.secondary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #4ea8ff44 40%, #ff00c144 100%);
+  opacity: 0.5;
+  filter: blur(12px);
+  z-index: -1;
+  transition: opacity 0.3s;
+}
+.button.secondary:hover::before {
+  opacity: 0.9;
 }
 .button.secondary:hover {
-  background: linear-gradient(90deg, #1565c0 0%, #1976d2 100%);
-  box-shadow: 0 6px 24px #4ea8ff55;
-  transform: translateY(-2px) scale(1.04);
+  background: linear-gradient(90deg, #ff00c1 0%, #4ea8ff 100%);
+  box-shadow: 0 6px 32px #ff00c199, 0 0 24px #4ea8ff99;
+  border: 2px solid #ff00c1;
+  transform: translateY(-2px) scale(1.06) rotate(-1deg);
 }
+
+.button.secondary:active {
+  transform: scale(0.95);
+  transition: transform 0.15s ease-in-out;
+}
+
 /* --- Galeri Slider (tekli görünüm, kayarak geçiş) --- */
 .gallery-slider {
   position: relative;
@@ -151,6 +185,10 @@ header a:hover {
   display: flex;
   align-items: center;
   min-height: 240px;
+  border: 2px solid #4ea8ff55;
+  box-shadow: 0 4px 32px #1976d244, 0 0 24px #ff00c144;
+  background: linear-gradient(135deg, #232b45 60%, #4ea8ff22 100%);
+  backdrop-filter: blur(8px);
 }
 .gallery-slides {
   width: 100%;
@@ -234,7 +272,7 @@ header a:hover {
     align-items: center;
   }
   .project-detail h1 {
-    font-size: 2rem;
+    font-size: 1.4rem;
   }
   .button.secondary {
     width: 100%;
@@ -245,7 +283,7 @@ header a:hover {
     min-height: 160px;
   }
   .gallery-slide img {
-    max-height: 180px;
+    max-height: 120px;
   }
   .gallery-arrow {
     font-size: 1.5rem;
@@ -257,9 +295,10 @@ header a:hover {
 
 
 .project-detail section:hover {
-  border: 1.5px solid #4ea8ff;
-  box-shadow: 0 0 24px #4ea8ff55;
-  transition: box-shadow 0.4s ease, border 0.3s ease;
+  border: 2px solid #4ea8ff;
+  box-shadow: 0 0 32px #4ea8ff99, 0 0 8px #fff2;
+  background: rgba(30, 40, 70, 0.75);
+  transition: box-shadow 0.4s, border 0.3s, background 0.3s;
 }
 
 
@@ -278,6 +317,27 @@ header a:hover {
   }
 }
 
+@keyframes neonGlow {
+  0% { text-shadow: 0 0 8px #4ea8ff, 0 0 24px #ff00c1; }
+  100% { text-shadow: 0 0 24px #4ea8ff, 0 0 48px #ff00c1; }
+}
+
+.project-detail h1::after {
+  content: '';
+  display: block;
+  margin: 0 auto;
+  margin-top: 8px;
+  width: 60px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #4ea8ff, #ff00c1);
+  animation: underlineGlow 2.5s infinite alternate;
+}
+
+@keyframes underlineGlow {
+  0% { box-shadow: 0 0 8px #4ea8ff; }
+  100% { box-shadow: 0 0 24px #ff00c1; }
+}
 
 .button.secondary {
   position: relative;
@@ -335,4 +395,16 @@ body::before {
   opacity: 0.03;
   pointer-events: none;
   z-index: 0;
+}
+
+.gallery img, .gallery-slide img {
+  box-shadow: 0 2px 16px #4ea8ff33, 0 0 8px #ff00c122;
+  border: 2px solid #4ea8ff33;
+  transition: box-shadow 0.3s, border 0.3s, transform 0.3s, filter 0.3s;
+}
+.gallery img:hover, .gallery-slide img:hover {
+  box-shadow: 0 8px 32px #4ea8ff99, 0 0 32px #ff00c199;
+  border: 2px solid #ff00c1;
+  filter: brightness(1.12) contrast(1.18) drop-shadow(0 0 12px #ff00c1cc);
+  transform: scale(1.12) rotate(-2deg);
 }
