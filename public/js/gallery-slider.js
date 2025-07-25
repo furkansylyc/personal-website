@@ -2,16 +2,21 @@
 (function() {
   function createSlider(gallery) {
     const images = Array.from(gallery.querySelectorAll('img'));
-    if (images.length <= 1) return; 
+    if (images.length <= 1) return;
 
+    // Slider container
     const slider = document.createElement('div');
     slider.className = 'gallery-slider';
     slider.tabIndex = 0;
 
-    
+    // Slide wrapper
     const slidesWrapper = document.createElement('div');
     slidesWrapper.className = 'gallery-slides';
+    slidesWrapper.style.width = images.length * 100 + '%';
+    slidesWrapper.style.display = 'flex';
+    slidesWrapper.style.transition = 'transform 0.5s cubic-bezier(.4,0,.2,1)';
 
+    // Ok butonları
     const prevBtn = document.createElement('button');
     prevBtn.className = 'gallery-arrow gallery-arrow-left';
     prevBtn.innerHTML = '&#8592;';
@@ -21,11 +26,14 @@
     nextBtn.innerHTML = '&#8594;';
     nextBtn.setAttribute('aria-label', 'Sonraki fotoğraf');
 
-   
-    images.forEach((img, i) => {
+    // Slide'ları ekle
+    images.forEach((img) => {
       const slide = document.createElement('div');
       slide.className = 'gallery-slide';
-      if (i === 0) slide.classList.add('active');
+      slide.style.flex = '0 0 100%';
+      slide.style.display = 'flex';
+      slide.style.justifyContent = 'center';
+      slide.style.alignItems = 'center';
       slide.appendChild(img);
       slidesWrapper.appendChild(slide);
     });
@@ -36,27 +44,26 @@
     gallery.parentNode.replaceChild(slider, gallery);
 
     let current = 0;
-    const slides = Array.from(slidesWrapper.children);
     function showSlide(idx) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === idx);
-      });
+      if (idx < 0) idx = images.length - 1;
+      if (idx >= images.length) idx = 0;
+      slidesWrapper.style.transform = `translateX(-${idx * (100 / images.length)}%)`;
       current = idx;
     }
     function prev() {
-      showSlide((current - 1 + slides.length) % slides.length);
+      showSlide(current - 1);
     }
     function next() {
-      showSlide((current + 1) % slides.length);
+      showSlide(current + 1);
     }
     prevBtn.addEventListener('click', prev);
     nextBtn.addEventListener('click', next);
-   
+    // Klavye desteği
     slider.addEventListener('keydown', e => {
       if (e.key === 'ArrowLeft') prev();
       if (e.key === 'ArrowRight') next();
     });
-   
+    // Swipe desteği
     let startX = null;
     slidesWrapper.addEventListener('touchstart', e => {
       startX = e.touches[0].clientX;
@@ -68,6 +75,7 @@
       else if (dx < -40) next();
       startX = null;
     });
+    showSlide(0);
   }
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.gallery').forEach(createSlider);
