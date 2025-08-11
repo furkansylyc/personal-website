@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     return;
   }
 
-  // Gmail SMTP ile transporter oluştur
+
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
