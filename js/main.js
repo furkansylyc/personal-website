@@ -30,7 +30,6 @@ const revealElements = document.querySelectorAll('.reveal-content, .reveal-image
 const filterButtons = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 const cursor = document.getElementById('cursor');
-const skillProgressBars = document.querySelectorAll('.skill-progress');
 const scrollToTopButton = document.querySelector('.back-to-top');
 
 // Initialize theme from localStorage or system preference
@@ -156,7 +155,7 @@ const customCursor = () => {
     });
     
     // Hover effect for links, buttons, and interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, input, textarea, .project-card, .skill-item, .tool-item');
+    const interactiveElements = document.querySelectorAll('a, button, input, textarea, .project-card, .skills-category');
     
     interactiveElements.forEach(element => {
       element.addEventListener('mouseenter', () => {
@@ -170,33 +169,6 @@ const customCursor = () => {
   }
 };
 
-// Set actual progress width values for skill bars
-const setSkillProgressWidth = () => {
-  const skillItems = document.querySelectorAll('.skill-item');
-  
-  skillItems.forEach(item => {
-    const percentage = item.querySelector('.skill-percentage').textContent;
-    const progressBar = item.querySelector('.skill-progress');
-    
-    progressBar.style.setProperty('--progress-width', percentage);
-  });
-};
-
-// Animate skill progress bars on scroll
-const animateSkillBars = () => {
-  const skillsSection = document.getElementById('skills');
-  
-  window.addEventListener('scroll', () => {
-    const sectionTop = skillsSection.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-    
-    if (sectionTop < windowHeight * 0.7) {
-      skillProgressBars.forEach(bar => {
-        bar.classList.add('animate');
-      });
-    }
-  });
-};
 
 // Smooth scrolling for anchor links
 const smoothScrolling = () => {
@@ -311,7 +283,6 @@ const pageEntryAnimation = () => {
 // Initialize the application
 const initApp = () => {
   initTheme();
-  setSkillProgressWidth();
   handleScroll(); // Initial call to set correct states
   
   // Event listeners
@@ -329,7 +300,6 @@ const initApp = () => {
   closeMobileNavOnClick();
   filterProjects();
   customCursor();
-  animateSkillBars();
   smoothScrolling();
   handleFormSubmission();
   pageEntryAnimation();

@@ -737,12 +737,19 @@ section {
 /* Skills section */
 .skills-content {
   display: grid;
-  gap: var(--space-8);
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
 }
 
 @media (min-width: 768px) {
   .skills-content {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skills-content {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -750,12 +757,20 @@ section {
   background-color: var(--color-bg-secondary);
   border-radius: var(--radius-xl);
   padding: var(--space-6);
+  transition: var(--transition-all);
+}
+
+.skills-category:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .skills-category h3 {
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-4);
   position: relative;
   display: inline-block;
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
 }
 
 .skills-category h3:after {
@@ -768,61 +783,15 @@ section {
   background-color: var(--color-primary-500);
 }
 
-.skill-items {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+.skill-list {
+  margin-top: var(--space-4);
 }
 
-.skill-item {
-  margin-bottom: var(--space-4);
-}
-
-.skill-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: var(--space-2);
+.skill-list p {
+  color: var(--color-text-secondary);
+  line-height: 1.8;
   font-size: var(--text-sm);
-}
-
-.skill-percentage {
-  font-weight: var(--font-semibold);
-  color: var(--color-primary-600);
-}
-
-.skill-bar {
-  height: 8px;
-  width: 100%;
-  background-color: var(--color-bg-tertiary);
-  border-radius: var(--radius-full);
-  overflow: hidden;
-}
-
-.skill-progress {
-  height: 100%;
-  background-color: var(--color-primary-500);
-  border-radius: var(--radius-full);
-  transition: width 1.5s ease-in-out;
-}
-
-.tools-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-4);
-}
-
-.tool-item {
-  background-color: var(--color-bg-tertiary);
-  border-radius: var(--radius-lg);
-  padding: var(--space-3);
-  text-align: center;
-  transition: var(--transition-all);
-}
-
-.tool-item:hover {
-  transform: translateY(-3px);
-  background-color: var(--color-primary-100);
-  color: var(--color-primary-700);
+  margin: 0;
 }
 
 /* Projects section */
