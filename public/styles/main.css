@@ -749,49 +749,157 @@ section {
 
 @media (min-width: 1024px) {
   .skills-content {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 .skills-category {
-  background-color: var(--color-bg-secondary);
+  background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg-tertiary) 100%);
   border-radius: var(--radius-xl);
   padding: var(--space-6);
   transition: var(--transition-all);
+  border: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.skills-category::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary-500), var(--color-accent-500), var(--color-primary-500));
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skills-category:hover::before {
+  opacity: 1;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .skills-category:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(14, 165, 233, 0.15);
+  border-color: var(--color-primary-300);
 }
 
-.skills-category h3 {
-  margin-bottom: var(--space-4);
+.category-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
   position: relative;
-  display: inline-block;
+}
+
+.category-header h3 {
   font-size: var(--text-lg);
   font-weight: var(--font-semibold);
+  color: var(--color-text-primary);
+  position: relative;
+  display: inline-block;
 }
 
-.skills-category h3:after {
+.category-header h3:after {
   content: '';
   position: absolute;
   bottom: -8px;
   left: 0;
   width: 40px;
   height: 3px;
-  background-color: var(--color-primary-500);
+  background: linear-gradient(90deg, var(--color-primary-500), var(--color-accent-500));
+  border-radius: var(--radius-full);
+}
+
+.category-icon {
+  font-size: var(--text-2xl);
+  line-height: 1;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .skill-list {
-  margin-top: var(--space-4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
 }
 
-.skill-list p {
-  color: var(--color-text-secondary);
-  line-height: 1.8;
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
   font-size: var(--text-sm);
-  margin: 0;
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  box-shadow: var(--shadow-sm);
+}
+
+.skill-badge::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-primary-200) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  opacity: 0;
+}
+
+.skill-badge:hover::before {
+  width: 200px;
+  height: 200px;
+  opacity: 0.3;
+}
+
+.skill-badge:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: linear-gradient(135deg, var(--color-primary-50), var(--color-accent-50));
+  border-color: var(--color-primary-400);
+  color: var(--color-primary-700);
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.2);
+}
+
+[data-theme="dark"] .skill-badge {
+  background: var(--color-bg-tertiary);
+  border-color: var(--color-neutral-600);
+}
+
+[data-theme="dark"] .skill-badge:hover {
+  background: linear-gradient(135deg, var(--color-primary-900), var(--color-accent-900));
+  border-color: var(--color-primary-500);
+  color: var(--color-primary-300);
 }
 
 /* Projects section */
