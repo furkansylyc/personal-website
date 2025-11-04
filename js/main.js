@@ -210,6 +210,29 @@ const smoothScrolling = () => {
   });
 };
 
+// Handle page load - prevent auto-scroll to hash
+const handlePageLoad = () => {
+  // Remove hash from URL if present and scroll to top
+  if (window.location.hash) {
+    // Remove hash without scrolling
+    history.replaceState(null, null, window.location.pathname + window.location.search);
+  }
+  
+  // Force scroll to top on page load immediately
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  
+  window.scrollTo(0, 0);
+  
+  // Ensure we're at top after a brief delay (in case browser tries to restore scroll)
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+    // Enable smooth scrolling after page load
+    document.documentElement.setAttribute('data-scroll', 'enabled');
+  }, 100);
+};
+
 // Form submission handling
 const handleFormSubmission = () => {
   const contactForm = document.querySelector('.contact-form');
@@ -385,6 +408,7 @@ const pageEntryAnimation = () => {
 // Initialize the application
 const initApp = () => {
   initTheme();
+  handlePageLoad(); // Handle page load and scroll position
   handleScroll(); // Initial call to set correct states
   
   // Event listeners
@@ -426,6 +450,11 @@ const initApp = () => {
     document.body.classList.add('content-loaded');
   }, 100);
 };
+
+// Prevent scroll restoration before DOM loads
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
 
 // Run the initialization
 document.addEventListener('DOMContentLoaded', initApp);

@@ -176,6 +176,11 @@ html {
   text-rendering: optimizeLegibility;
 }
 
+/* Prevent auto-scroll on page load */
+html:not([data-scroll="enabled"]) {
+  scroll-behavior: auto;
+}
+
 body {
   font-family: var(--font-sans);
   font-size: var(--text-base);
