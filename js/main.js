@@ -270,7 +270,7 @@ const typingEffect = () => {
   const typingText = document.querySelector('.typing-text');
   if (!typingText) return;
   
-  const texts = ['Jr Mobile Dev | CE Student', 'Android Developer', 'Full Stack Enthusiast'];
+  const texts = ['Mobile Developer ','CE Student', 'Android Developer', 'Full Stack Developer'];
   let textIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
