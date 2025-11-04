@@ -265,6 +265,51 @@ const handleFormSubmission = () => {
   }
 };
 
+// Typing effect for hero subtitle
+const typingEffect = () => {
+  const typingText = document.querySelector('.typing-text');
+  if (!typingText) return;
+  
+  const texts = ['Jr Mobile Dev | CE Student', 'Android Developer', 'Full Stack Enthusiast'];
+  let textIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  
+  const type = () => {
+    const currentText = texts[textIndex];
+    
+    if (isDeleting) {
+      typingText.textContent = currentText.substring(0, charIndex - 1) + '|';
+      charIndex--;
+    } else {
+      typingText.textContent = currentText.substring(0, charIndex + 1) + '|';
+      charIndex++;
+    }
+    
+    if (!isDeleting && charIndex === currentText.length) {
+      // Pause at end of text
+      setTimeout(() => {
+        isDeleting = true;
+      }, 2000);
+    } else if (isDeleting && charIndex === 0) {
+      // Move to next text
+      isDeleting = false;
+      textIndex = (textIndex + 1) % texts.length;
+      setTimeout(type, 500);
+      return;
+    }
+    
+    const typeSpeed = isDeleting ? 50 : 100;
+    setTimeout(type, typeSpeed);
+  };
+  
+  // Start typing after name animation
+  setTimeout(() => {
+    typingText.textContent = '|';
+    type();
+  }, 800);
+};
+
 // Page load entry animation
 const pageEntryAnimation = () => {
   body.classList.add('entry-animation');
@@ -303,6 +348,7 @@ const initApp = () => {
   smoothScrolling();
   handleFormSubmission();
   pageEntryAnimation();
+  typingEffect();
   
   // Prevent flash of unstyled content
   setTimeout(() => {
