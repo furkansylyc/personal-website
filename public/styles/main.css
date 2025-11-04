@@ -591,32 +591,28 @@ section {
   display: inline-block;
   opacity: 0;
   transform: translateY(20px) rotateX(90deg);
-  background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-accent-500) 50%, var(--color-primary-600) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  background-size: 200% 200%;
+  color: var(--color-white);
   font-weight: var(--font-bold);
-  animation: letterReveal 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards, gradientShift 3s ease infinite;
+  animation: letterReveal 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
 }
 
 .name-letter:nth-child(1) { 
-  animation-delay: 0.1s, 0s; 
+  animation-delay: 0.1s; 
 }
 .name-letter:nth-child(2) { 
-  animation-delay: 0.2s, 0.1s; 
+  animation-delay: 0.2s; 
 }
 .name-letter:nth-child(3) { 
-  animation-delay: 0.3s, 0.2s; 
+  animation-delay: 0.3s; 
 }
 .name-letter:nth-child(4) { 
-  animation-delay: 0.4s, 0.3s; 
+  animation-delay: 0.4s; 
 }
 .name-letter:nth-child(5) { 
-  animation-delay: 0.5s, 0.4s; 
+  animation-delay: 0.5s; 
 }
 .name-letter:nth-child(6) { 
-  animation-delay: 0.6s, 0.5s; 
+  animation-delay: 0.6s; 
 }
 
 @keyframes letterReveal {
