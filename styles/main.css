@@ -590,10 +590,9 @@ section {
 .name-letter {
   display: inline-block;
   opacity: 0;
-  transform: translateY(20px) rotateX(90deg);
   color: var(--color-white);
   font-weight: var(--font-bold);
-  animation: letterReveal 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  animation: letterType 0.3s ease forwards;
 }
 
 .name-letter:nth-child(1) { 
@@ -615,17 +614,12 @@ section {
   animation-delay: 0.6s; 
 }
 
-@keyframes letterReveal {
+@keyframes letterType {
   0% {
     opacity: 0;
-    transform: translateY(20px) rotateX(90deg) scale(0.8);
-  }
-  50% {
-    transform: translateY(-5px) rotateX(0deg) scale(1.1);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) rotateX(0deg) scale(1);
   }
 }
 
