@@ -31,6 +31,8 @@ const filterButtons = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 const cursor = document.getElementById('cursor');
 const scrollToTopButton = document.querySelector('.back-to-top');
+const backToTopBtn = document.getElementById('back-to-top');
+const scrollProgress = document.querySelector('.scroll-progress');
 
 // Initialize theme from localStorage or system preference
 const initTheme = () => {
@@ -56,6 +58,23 @@ const toggleTheme = () => {
 // Handle scroll events
 const handleScroll = () => {
   const scrollPosition = window.scrollY;
+  const windowHeight = window.innerHeight;
+  const documentHeight = document.documentElement.scrollHeight - windowHeight;
+  const scrollPercentage = (scrollPosition / documentHeight) * 100;
+  
+  // Scroll progress bar
+  if (scrollProgress) {
+    scrollProgress.style.width = `${scrollPercentage}%`;
+  }
+  
+  // Back to top button visibility
+  if (backToTopBtn) {
+    if (scrollPosition > 300) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+  }
   
   // Header background change on scroll
   if (scrollPosition > 50) {
@@ -83,7 +102,6 @@ const handleScroll = () => {
   // Reveal animations on scroll
   revealElements.forEach(element => {
     const elementTop = element.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
     
     if (elementTop < windowHeight * 0.85) {
       element.classList.add('revealed');
@@ -310,6 +328,45 @@ const typingEffect = () => {
   }, 800);
 };
 
+// Animate counter numbers
+const animateCounters = () => {
+  const counters = document.querySelectorAll('.stat-number[data-target]');
+  
+  const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+        const target = parseInt(entry.target.getAttribute('data-target'));
+        const duration = 2000; // 2 seconds
+        const increment = target / (duration / 16); // 60fps
+        let current = 0;
+        
+        entry.target.classList.add('counted');
+        
+        const updateCounter = () => {
+          current += increment;
+          if (current < target) {
+            entry.target.textContent = Math.floor(current) + '+';
+            requestAnimationFrame(updateCounter);
+          } else {
+            entry.target.textContent = target + '+';
+          }
+        };
+        
+        updateCounter();
+      }
+    });
+  }, observerOptions);
+  
+  counters.forEach(counter => {
+    observer.observe(counter);
+  });
+};
+
 // Page load entry animation
 const pageEntryAnimation = () => {
   body.classList.add('entry-animation');
@@ -334,12 +391,25 @@ const initApp = () => {
   window.addEventListener('scroll', handleScroll);
   themeToggle.addEventListener('click', toggleTheme);
   menuToggle.addEventListener('click', toggleMobileNav);
-  scrollToTopButton.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+  
+  // Back to top button
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
-  });
+  }
+  
+  if (scrollToTopButton) {
+    scrollToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
   
   // Initialize features
   closeMobileNavOnClick();
@@ -349,6 +419,7 @@ const initApp = () => {
   handleFormSubmission();
   pageEntryAnimation();
   typingEffect();
+  animateCounters();
   
   // Prevent flash of unstyled content
   setTimeout(() => {
