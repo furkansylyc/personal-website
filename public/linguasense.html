@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaSense</title>
+  <link rel="icon" type="image/svg+xml" href="photos/linguasense/1.jpg" />
+  <link rel="stylesheet" href="styles/linguasense.css">
+  <link rel="stylesheet" href="styles/gallery-modal.css">
+</head>
+<body>
+  <header>
+    <a href="index.html">&larr; Ana Sayfa</a>
+  </header>
+
+  <main class="project-detail">
+    <h1>🎯 LinguaSense</h1>
+    <img src="photos/linguasense/1.jpg" alt="LinguaSense Uygulama Görseli" style="max-width:300px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+
+    <section>
+      <h2>Proje Açıklaması</h2>
+      <p>
+        <strong>LinguaSense</strong>, çocuklar için tasarlanmış, fonolojik ve sentaktik dil becerilerini değerlendiren eğitici bir mobil uygulamadır. Uygulama, çocuk dostu arayüzü, pastel renkler ve interaktif animasyonlarla dil gelişimini destekler. Sesli okuma özelliği ve görsel geri bildirimlerle öğrenmeyi eğlenceli hale getirir.
+      </p>
+    </section>
+
+    <section>
+      <h2>📱 Özellikler</h2>
+      
+      <h3>🎵 Fonolojik Test</h3>
+      <ul>
+        <li><strong>3 Alt Kategori:</strong></li>
+        <li>• Çıkış Yeri (Place of Articulation)</li>
+        <li>• Çıkış Şekli (Manner of Articulation)</li>
+        <li>• Ötümlülük-Ötümsüzlük (Voicing)</li>
+        <li><strong>Grup Sistemi:</strong></li>
+        <li>• Grup A: Kelime çiftlerinin sol tarafındaki kelimeleri duyar</li>
+        <li>• Grup B: Kelime çiftlerinin sağ tarafındaki kelimeleri duyar</li>
+        <li><strong>Test Akışı:</strong></li>
+        <li>• Kategori başına 2 soru</li>
+        <li>• Her soruda 3 kelime sesli olarak okunur</li>
+        <li>• Katılımcı duyduğu kelimeleri seçer</li>
+        <li>• Zaman ölçümü ve kayıt</li>
+      </ul>
+
+      <h3>📝 Sentaktik Test</h3>
+      <ul>
+        <li><strong>Tren Temalı Arayüz:</strong></li>
+        <li>• Tren rayları ve vagonlar</li>
+        <li>• Kelimelerin vagonlara yerleştirilmesi</li>
+        <li>• İnteraktif kelime bankası</li>
+        <li><strong>Test Akışı:</strong></li>
+        <li>• 6 cümle sırayla gösterilir</li>
+        <li>• Kelimeler karışık sırada sunulur</li>
+        <li>• Doğru sıralamada tren animasyonu</li>
+        <li>• "Harikasın!" başarı mesajı</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🎨 Kullanıcı Arayüzü</h2>
+      <p>Uygulama çocuk dostu bir tasarıma sahiptir:</p>
+      <ul>
+        <li>🎨 Pastel renkler ve yumuşak tonlar</li>
+        <li>📖 Büyük, okunabilir yazı tipleri</li>
+        <li>😊 Emojiler ve görsel öğeler</li>
+        <li>✨ Animasyonlar ve geri bildirimler</li>
+        <li>🖼️ Arka plan görselleri</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🛠️ Kullanılan Teknolojiler</h2>
+      <ul>
+        <li><strong>Kotlin:</strong> Programlama dili</li>
+        <li><strong>Jetpack Compose:</strong> Modern UI framework</li>
+        <li><strong>Room Database:</strong> Yerel veritabanı</li>
+        <li><strong>Text-to-Speech (TTS):</strong> Sesli okuma</li>
+        <li><strong>Material Design 3:</strong> UI bileşenleri</li>
+        <li><strong>Navigation Compose:</strong> Ekran navigasyonu</li>
+        <li><strong>ViewModel & StateFlow:</strong> Durum yönetimi</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📋 Gereksinimler</h2>
+      <ul>
+        <li>Android 7.0 (API 24) veya üzeri</li>
+        <li>Android Studio Hedgehog veya üzeri</li>
+        <li>Kotlin 1.9.0 veya üzeri</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📊 Veritabanı</h2>
+      <p>Uygulama, test sonuçlarını Room Database kullanarak yerel olarak saklar:</p>
+      <ul>
+        <li>Yaş bilgisi</li>
+        <li>Kategori bazlı zaman ölçümleri</li>
+        <li>Test tarihleri</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🎯 Test Yapısı</h2>
+      
+      <h3>Fonolojik Test Kelimeleri</h3>
+      
+      <h4>Çıkış Yeri:</h4>
+      <ul>
+        <li><strong>Grup A:</strong> post, bere, sapan / kabar, mine, minik</li>
+        <li><strong>Grup B:</strong> tost, dere, satan / kadar, nine, mimik</li>
+      </ul>
+
+      <h4>Çıkış Şekli:</h4>
+      <ul>
+        <li><strong>Grup A:</strong> meze, tıpa, yaban / dere, yatak, maden</li>
+        <li><strong>Grup B:</strong> beze, sıpa, yaman / nere, yasak, manen</li>
+      </ul>
+
+      <h4>Ötümlülük:</h4>
+      <ul>
+        <li><strong>Grup A:</strong> erken, kocan, kalp / satır, tere, sarf</li>
+        <li><strong>Grup B:</strong> ergen, koçan, galp / sadır, dere, zarf</li>
+      </ul>
+
+      <h3>Sentaktik Test Cümleleri</h3>
+      <ol>
+        <li>Kedi süt içti</li>
+        <li>Babam eve geldi</li>
+        <li>Arı bal yaptı</li>
+        <li>Ayşe ip atladı</li>
+        <li>Dedem çay içti</li>
+        <li>Mavi balon havaya uçtu</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Uygulama Galerisi</h2>
+      <div class="gallery">
+        <img src="photos/linguasense/1.jpg" alt="LinguaSense Görsel 1" style="max-width:200px; margin: 10px;">
+        <img src="photos/linguasense/2.jpg" alt="LinguaSense Görsel 2" style="max-width:200px; margin: 10px;">
+        <img src="photos/linguasense/3.jpg" alt="LinguaSense Görsel 3" style="max-width:200px; margin: 10px;">
+        <img src="photos/linguasense/4.jpg" alt="LinguaSense Görsel 4" style="max-width:200px; margin: 10px;">
+        <img src="photos/linguasense/5.jpg" alt="LinguaSense Görsel 5" style="max-width:200px; margin: 10px;">
+      </div>
+    </section>
+
+    <section>
+      <h2>Geliştirici Notları</h2>
+      <p>
+        LinguaSense projesi, çocukların dil gelişimini desteklemek amacıyla geliştirilmiş bir eğitim uygulamasıdır. Bu projede Jetpack Compose ile modern UI tasarımı, Room Database ile veri yönetimi, Text-to-Speech entegrasyonu ve çocuk dostu arayüz tasarımı konularında deneyim kazandım. Uygulama, eğitim alanında teknolojinin nasıl kullanılabileceğine dair güzel bir örnek teşkil etmektedir.
+      </p>
+    </section>
+  </main>
+  <script src="js/gallery-modal.js"></script>
+  
+</body>
+</html>
+

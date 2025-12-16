@@ -3,6 +3,7 @@
     { "source": "/fitapp", "destination": "/fitapp.html" },
     { "source": "/siirblog", "destination": "/siirblog.html" },
     { "source": "/easynote", "destination": "/easynote.html" },
-    { "source": "/stoneage", "destination": "/stoneage.html" }
+    { "source": "/stoneage", "destination": "/stoneage.html" },
+    { "source": "/linguasense", "destination": "/linguasense.html" }
   ]
 } 
