@@ -1,0 +1,181 @@
+import type { Dictionary } from './en';
+
+const tr: Dictionary = {
+  meta: {
+    title: 'Furkan Söyleyici — Yazılım Mühendisi · Android & Web Geliştirici',
+    description:
+      'Furkan Söyleyici; Kotlin ile Android uygulamaları, React & Next.js ile web ürünleri ve Spring Boot ile API’ler geliştiren bir yazılım mühendisi.',
+    projectsTitle: 'Tüm projeler',
+    projectsDescription:
+      'Furkan Söyleyici’nin Android uygulamaları, web ürünleri ve full-stack projeleri — EasyNote’tan UçarDent ve FindBest’e.',
+    contactTitle: 'İletişim',
+    contactDescription:
+      'Ürün geliştirme, iş birliği ve mühendislik fırsatları için Furkan Söyleyici ile iletişime geçin.',
+  },
+  nav: {
+    home: 'Ana sayfa',
+    work: 'Projeler',
+    about: 'Hakkımda',
+    experience: 'Deneyim',
+    contact: 'İletişim',
+    available: 'Yeni projelere açığım',
+    menu: 'Menüyü aç',
+    close: 'Menüyü kapat',
+    language: 'Dili değiştir',
+    skip: 'İçeriğe geç',
+    primary: 'Ana menü',
+  },
+  hero: {
+    eyebrow: 'Yazılım Mühendisi',
+    title: [
+      [{ t: 'Mobil' }, { t: 've' }, { t: 'web' }],
+      [{ t: 'ürünler', accent: true }, { t: 'geliştiriyorum.' }],
+    ],
+    subtitle: 'Fikirden canlıya.',
+    disciplines: ['Android', 'Web', 'Backend'],
+    primaryCta: 'Seçili işleri gör',
+    resume: 'Özgeçmiş',
+    secondaryCta: 'İletişime geç',
+    visualAlt: 'Telefonda çalışan EasyNote Android uygulaması',
+    tagMobile: 'Android · Kotlin',
+    tagWeb: 'Web · Next.js',
+  },
+  capabilities: {
+    label: 'Yetkinlikler',
+    items: [
+      { label: 'Android', text: 'Kotlin ve Jetpack Compose ile modern mobil deneyimler.' },
+      { label: 'Web', text: 'React ve Next.js ile modern web uygulamaları.' },
+      { label: 'Backend', text: 'Spring Boot ve PostgreSQL ile ölçeklenebilir API’ler.' },
+      { label: 'Konum', text: 'Isparta, Türkiye' },
+    ],
+  },
+  work: {
+    eyebrow: 'Seçili İşler',
+    title: 'Fark yaratan projeler.',
+    lead: 'Gerçek problemler, temiz çözümler.',
+    viewAll: 'Tüm projeleri gör',
+    caseStudy: 'Vaka çalışmasını oku',
+  },
+  about: {
+    eyebrow: 'Hakkımda',
+    hello: 'Ben Furkan.',
+    title: 'İşe yarayan dijital ürünler geliştirmeye odaklanan bir yazılım mühendisiyim.',
+    body: [
+      'Bir ürünü fikir aşamasından canlıya taşımayı seviyorum — mimariden arayüze, API’lerden yayına ve sonrasındaki iterasyonlara kadar.',
+      'İşlerimin çoğu mobil, web ve backend’in kesiştiği yerde: Kotlin ile native Android uygulamaları, React ve Next.js ile hızlı web deneyimleri ve bunların arkasındaki servisler. Kullanıcının hissettiği detaylar kadar, kodu sürdürecek mühendislerin karşılaşacağı yapıyı da önemsiyorum.',
+    ],
+    photoAlt: 'Furkan Söyleyici akşam saatlerinde bir kafede dizüstü bilgisayarla çalışırken',
+    beyondTitle: 'Kodun dışında.',
+    beyondText: 'Futbol. Ürün tasarımı. İşlerin nasıl çalıştığını öğrenmek.',
+  },
+  experience: {
+    eyebrow: 'Deneyim',
+    title: 'Neler üzerinde çalışıyorum.',
+    items: [
+      {
+        role: 'Yazılım Mühendisi',
+        context: 'Bağımsız projeler & freelance',
+        detail:
+          'Ürünleri uçtan uca tasarlayıp geliştiriyor ve yayına alıyorum — mimari ve arayüzden API’lere ve deployment’a kadar.',
+        tags: ['Android', 'Web', 'Backend'],
+      },
+      {
+        role: 'Android Geliştirme',
+        context: 'Kotlin · Java · Jetpack Compose',
+        detail:
+          'Google Play’de yayınlanan EasyNote ve Stone Age; bunların yanında FitApp ve LinguaSense.',
+        tags: ['Kotlin', 'Firebase', 'Room'],
+      },
+      {
+        role: 'Web Geliştirme',
+        context: 'React · Next.js · TypeScript',
+        detail:
+          'Dönüşüm odaklı web siteleri ve full-stack web uygulamaları; UçarDent, FindBest ve Şiir Blog dahil.',
+        tags: ['Next.js', 'TypeScript', 'Node.js'],
+      },
+    ],
+  },
+  stack: {
+    eyebrow: 'Teknoloji',
+    title: 'Kullandığım araçlar.',
+    groups: {
+      mobile: 'Mobil',
+      web: 'Web',
+      backend: 'Backend',
+      tools: 'Araçlar',
+    },
+  },
+  contact: {
+    eyebrow: 'İletişim',
+    title: [{ t: 'Hayata geçirmeye' }, { t: 'değer bir fikrin mi var?', accent: true }],
+    text: 'İlginç projelere, iş birliklerine ve mühendislik fırsatlarına açığım.',
+    cta: 'İletişime geç',
+    emailLabel: 'Ya da doğrudan yaz',
+    copy: 'E-postayı kopyala',
+    copied: 'Kopyalandı',
+  },
+  footer: {
+    tagline: 'Yazılım Mühendisi · Android & Web Geliştirici',
+    rights: 'Tüm hakları saklıdır.',
+    backToTop: 'Başa dön',
+    navLabel: 'Alt menü',
+  },
+  projects: {
+    eyebrow: 'Dizin',
+    title: 'Tüm projeler',
+    lead: 'Android, web ve backend alanında ürünler, deneyler ve müşteri işleri.',
+    featured: 'Öne çıkanlar',
+    other: 'Diğer işler',
+    project: 'Proje',
+    category: 'Kategori',
+    stack: 'Teknoloji',
+  },
+  caseStudy: {
+    back: 'Tüm projeler',
+    problem: 'Problem',
+    solution: 'Çözüm',
+    built: 'Neler geliştirdim',
+    stack: 'Teknolojiler',
+    screens: 'Ürün önizlemesi',
+    challenges: 'Zorluklar',
+    result: 'Ortaya çıkan',
+    next: 'Sonraki proje',
+    live: 'Canlı proje',
+    github: 'GitHub',
+    play: 'Google Play',
+    category: 'Kategori',
+    platform: 'Platform',
+    status: 'Durum',
+    openImage: 'Görseli aç',
+    closeImage: 'Kapat',
+    screenshot: 'ekran görüntüsü',
+  },
+  contactPage: {
+    eyebrow: 'İletişim',
+    title: 'Birlikte bir şey inşa edelim.',
+    lead: 'Ürününden, fikrinden ya da açık pozisyondan bahset. Genellikle birkaç gün içinde dönüş yapıyorum.',
+    direct: 'Doğrudan',
+    social: 'Diğer kanallar',
+    location: 'Konum',
+    form: {
+      name: 'İsim',
+      email: 'E-posta',
+      subject: 'Konu',
+      message: 'Mesaj',
+      send: 'Mesajı gönder',
+      sending: 'Gönderiliyor…',
+      successTitle: 'Mesajın iletildi.',
+      successText: 'Yazdığın için teşekkürler — en kısa sürede dönüş yapacağım.',
+      errorTitle: 'Bir şeyler ters gitti.',
+      errorText: 'Mesajın gönderilemedi. Lütfen tekrar dene ya da doğrudan e-posta gönder.',
+      invalid: 'Lütfen tüm alanları geçerli bir e-posta adresiyle doldur.',
+    },
+  },
+  notFound: {
+    title: 'Sayfa bulunamadı.',
+    text: 'Aradığın sayfa mevcut değil ya da taşınmış.',
+    home: 'Ana sayfaya dön',
+  },
+};
+
+export default tr;
