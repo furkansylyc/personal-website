@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
   const projectIcon = project.logo || '/photos/fs-seffaf.png';
 
   return {
-    title: `${project.title} — Case Study`,
+    title: `${project.title}`,
     description: project.summary[locale],
     icons: {
       icon: projectIcon,
