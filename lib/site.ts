@@ -5,6 +5,7 @@
 export const site = {
   name: 'Furkan Söyleyici',
   initials: 'FS',
+  logo: '/photos/fs-seffaf.png',
   url: 'https://www.furkansoyleyici.com',
   email: 'soyleyicifurkan@gmail.com',
   location: { city: 'Isparta', country: 'Türkiye' },

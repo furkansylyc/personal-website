@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { site } from '@/lib/site';
 import { type Locale, href } from '@/lib/i18n';
 import type { Dictionary } from '@/lib/dictionaries';
+import { getProject } from '@/lib/projects';
 
 interface NavbarProps {
   locale: Locale;
@@ -16,6 +18,14 @@ export function Navbar({ locale, dict }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  // Dynamic project logo: matches /projects/[slug] in the current route
+  const projectMatch = pathname?.match(/(?:^|\/)projects\/([^/?#]+)/);
+  const activeSlug = projectMatch ? projectMatch[1] : null;
+  const activeProject = activeSlug ? getProject(activeSlug) : null;
+  const currentLogo = (activeProject && activeProject.logo) ? activeProject.logo : site.logo;
+  const isDefaultLogo = currentLogo === site.logo;
+  const logoAlt = activeProject ? `${activeProject.title} Logo` : `${site.name} Logo`;
 
   useEffect(() => {
     const onScroll = () => {
@@ -53,7 +63,18 @@ export function Navbar({ locale, dict }: NavbarProps) {
       <div className="container navbar__container">
         {/* Left: Brand */}
         <Link href={href(locale)} className="navbar__brand" aria-label="Furkan Söyleyici">
-          <span className="navbar__logo">{site.initials}</span>
+          <span className="navbar__logo">
+            <span key={currentLogo} className="navbar__logo-inner">
+              <Image
+                src={currentLogo}
+                alt={logoAlt}
+                width={38}
+                height={38}
+                className={`navbar__logo-img ${isDefaultLogo ? 'navbar__logo-img--default' : 'navbar__logo-img--project'}`}
+                priority
+              />
+            </span>
+          </span>
           <span className="navbar__title">
             <span className="navbar__name">{site.name}</span>
             <span className="navbar__role">Software Engineer</span>

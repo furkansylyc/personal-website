@@ -32,6 +32,8 @@ export type Project = {
   gallery?: Img[];
   /** Brand mark used by CSS-drawn previews when no real screenshots exist. */
   mark?: string;
+  /** Custom logo for project, used in navbar and branding */
+  logo?: string;
 };
 
 const img = (src: string, width: number, height: number): Img => ({ src, width, height });
@@ -50,6 +52,7 @@ export const projects: Project[] = [
     title: 'EasyNote',
     featured: true,
     hue: 172,
+    logo: '/photos/en.png',
     category: { en: 'Android', tr: 'Android' },
     platform: { en: 'Android · Google Play', tr: 'Android · Google Play' },
     status: { en: 'Live on Google Play', tr: 'Google Play’de yayında' },
@@ -209,6 +212,7 @@ export const projects: Project[] = [
     title: 'Stone Age',
     featured: false,
     hue: 32,
+    logo: '/photos/logo.png',
     category: { en: 'Game · Android', tr: 'Oyun · Android' },
     platform: { en: 'Android · Google Play', tr: 'Android · Google Play' },
     status: { en: 'Live on Google Play', tr: 'Google Play’de yayında' },
@@ -262,6 +266,7 @@ export const projects: Project[] = [
     title: 'LinguaSense',
     featured: false,
     hue: 330,
+    logo: '/photos/linguasense/lslogo.png',
     category: { en: 'Android · EdTech', tr: 'Android · Eğitim' },
     platform: { en: 'Android', tr: 'Android' },
     stack: ['Kotlin', 'Jetpack Compose', 'Room', 'TTS'],
@@ -306,6 +311,7 @@ export const projects: Project[] = [
     title: 'FitApp',
     featured: false,
     hue: 140,
+    logo: '/photos/fitapp.jpg',
     category: { en: 'Android', tr: 'Android' },
     platform: { en: 'Android', tr: 'Android' },
     stack: ['Kotlin', 'Jetpack Compose', 'MVVM', 'Room'],
@@ -348,6 +354,7 @@ export const projects: Project[] = [
     title: 'Şiir Blog',
     featured: false,
     hue: 24,
+    logo: '/photos/raw.jpg',
     category: { en: 'Web · Full-stack', tr: 'Web · Full-stack' },
     platform: { en: 'Web', tr: 'Web' },
     status: { en: 'Live', tr: 'Yayında' },
