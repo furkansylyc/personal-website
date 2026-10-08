@@ -25,10 +25,15 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
   if (!project) return {};
 
   const locale = (locales.includes(lang as Locale) ? lang : 'en') as Locale;
+  const projectIcon = project.logo || '/photos/fs-seffaf.png';
 
   return {
     title: `${project.title} — Case Study`,
     description: project.summary[locale],
+    icons: {
+      icon: projectIcon,
+      apple: projectIcon,
+    },
   };
 }
 

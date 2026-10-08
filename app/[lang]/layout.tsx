@@ -105,8 +105,8 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
       },
     },
     icons: {
-      icon: '/photos/en.png',
-      apple: '/photos/en.png',
+      icon: '/photos/fs-seffaf.png',
+      apple: '/photos/fs-seffaf.png',
     },
   };
 }
